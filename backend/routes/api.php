@@ -1,10 +1,6 @@
-<?php
-
+<?php 
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/users', function () {
-    return response()->json([
-        "name" => "Mohamed",
-        "role" => "Developer"
-    ]);
-});
+Route::post('/upload', [DocumentController::class, 'upload']);
+Route::get('/results', [DocumentController::class, 'results']);

@@ -1,23 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import Upload from "./components/Upload";
+import Results from "./components/Results";
 
 function App() {
-
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/users")
-      .then(res => setUser(res.data));
-  }, []);
-
   return (
-    <div>
-      {user && (
-        <>
-          <h1>{user.name}</h1>
-          <p>{user.role}</p>
-        </>
-      )}
+    <div className="bg-indigo-500">
+      <h1>📄 Document Classifier</h1>
+      <Upload />
+      <Results />
     </div>
   );
 }
